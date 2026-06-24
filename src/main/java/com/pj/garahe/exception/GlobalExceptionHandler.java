@@ -39,4 +39,10 @@ public class GlobalExceptionHandler {
         return build(ex.getMessage(), HttpStatus.UNAUTHORIZED);
     }
 
+
+    @ExceptionHandler(ResourceConflictException.class)
+    public ResponseEntity<ErrorDetail> handleResourceConflictException(ResourceConflictException ex) {
+        return build(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
 }
